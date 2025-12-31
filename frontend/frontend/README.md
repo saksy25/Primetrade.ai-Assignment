@@ -1,16 +1,111 @@
-# React + Vite
+# TaskFlow - Frontend Documentation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modern, responsive React application built with Vite and TailwindCSS.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ **Authentication**: JWT-based login/signup with protected routes
+- ✅ **Dashboard**: Overview with task statistics
+- ✅ **Task Management**: Complete CRUD operations
+- ✅ **Search & Filter**: Find tasks by title, status, and priority
+- ✅ **Profile Management**: Update user information
+- ✅ **Responsive Design**: Mobile-first, works on all devices
+- ✅ **Modern UI**: TailwindCSS with beautiful components
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework**: React with Vite
+- **Styling**: TailwindCSS
+- **Routing**: React Router
+- **HTTP Client**: Axios
+- **Icons**: Lucide React
+- **State Management**: Context API
 
-## Expanding the ESLint configuration
+## 🎨 Features Overview
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Authentication
+- **Login Page**: Email/password authentication
+- **Signup Page**: User registration with validation
+- **Protected Routes**: Automatic redirect if not authenticated
+- **JWT Storage**: Token stored in localStorage
+- **Auto-logout**: On token expiration
+
+### Dashboard
+- **Statistics Cards**: Total, pending, in-progress, completed tasks
+- **Recent Tasks**: Quick view of latest 5 tasks
+- **Responsive Layout**: Sidebar navigation with mobile menu
+
+### Task Management
+- **Create**: Modal form for new tasks
+- **Read**: List view with search and filters
+- **Update**: Edit existing tasks
+- **Delete**: Remove tasks with confirmation
+- **Search**: Real-time search in title/description
+- **Filters**: By status and priority
+- **Sort**: Multiple sort options
+
+### Profile
+- **View**: Display user information
+- **Edit**: Update name, bio, avatar
+- **Stats**: Account statistics
+
+## 🎯 Component Architecture
+
+### Context API
+```javascript
+AuthContext
+├── user (state)
+├── login (method)
+├── signup (method)
+├── logout (method)
+└── updateUser (method)
+```
+
+### Routing
+```
+/
+├── /login (public)
+├── /signup (public)
+└── /dashboard (protected)
+    ├── / (dashboard home)
+    ├── /tasks (task list)
+    └── /profile (user profile)
+```
+
+## 🧪 Testing the Application
+
+1. **Start Backend** (Port 5000)
+```bash
+cd backend
+npm run dev
+```
+
+2. **Start Frontend** (Port 5173)
+```bash
+cd frontend
+npm run dev
+```
+
+3. **Test Flow**:
+   - Visit http://localhost:5173
+   - Click "Sign up"
+   - Create an account
+   - Login with credentials
+   - View dashboard
+   - Create tasks
+   - Update profile
+
+## 📊 API Endpoints Used
+
+| Method | Endpoint | Purpose |
+|--------|----------|---------|
+| POST | /api/auth/signup | Register user |
+| POST | /api/auth/login | Login user |
+| GET | /api/auth/me | Get current user |
+| GET | /api/tasks | Get all tasks |
+| POST | /api/tasks | Create task |
+| PUT | /api/tasks/:id | Update task |
+| DELETE | /api/tasks/:id | Delete task |
+| GET | /api/tasks/stats/overview | Get statistics |
+| GET | /api/profile | Get profile |
+| PUT | /api/profile | Update profile |
