@@ -1,4 +1,36 @@
+//backend requirements
+
+npm init
+
 npm install express mongoose bcryptjs jsonwebtoken dotenv cors express-validator
 
 npm install --save-dev nodemon
+
+npm run dev - for starting the server with nodemon
+
+
+//frontend requirements
+
+npm create vite@latest 
+npm install
+npm run dev
+
+npm install tailwindcss @tailwindcss/vite - for tailwindcss with vite
+
+- changes in vite.config.js 
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+
+@import "tailwindcss"; - add in index.css
+
+npm install axios
+npm install react-router-dom
+npm install lucide-react
+
 

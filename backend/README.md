@@ -1,4 +1,4 @@
-# Backend Documentation
+# TaskFlow - Backend Documentation
 
 A robust REST API built with Node.js, Express, and MongoDB featuring JWT authentication and CRUD operations.
 
@@ -35,58 +35,6 @@ backend/
 └── README.md
 ```
 
-## 🛠️ Installation
-
-### 1. Clone the repository
-```bash
-git clone <your-repo-url>
-cd backend
-```
-
-### 2. Install dependencies
-```bash
-npm install
-```
-
-### 3. Setup MongoDB Atlas
-
-1. Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-2. Create a free account
-3. Create a new cluster
-4. Click "Connect" → "Connect your application"
-5. Copy the connection string
-
-### 4. Configure environment variables
-
-Create a `.env` file in the root directory:
-
-```env
-PORT=5000
-NODE_ENV=development
-MONGO_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/scalable-web-app?retryWrites=true&w=majority
-JWT_SECRET=your_super_secret_jwt_key_change_this
-JWT_EXPIRE=7d
-CLIENT_URL=http://localhost:5173
-```
-
-**Replace:**
-- `<username>` and `<password>` with your MongoDB credentials
-- `your_super_secret_jwt_key_change_this` with a strong random string
-
-### 5. Run the server
-
-**Development mode:**
-```bash
-npm run dev
-```
-
-**Production mode:**
-```bash
-npm start
-```
-
-Server will run on `http://localhost:5000`
-
 ## 📚 API Endpoints
 
 ### Authentication Routes
@@ -97,8 +45,8 @@ POST /api/auth/signup
 Content-Type: application/json
 
 {
-  "name": "John Doe",
-  "email": "john@example.com",
+  "name": "Tester",
+  "email": "tester@example.com",
   "password": "password123"
 }
 ```
@@ -111,8 +59,8 @@ Content-Type: application/json
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
   "user": {
     "id": "65abc123...",
-    "name": "John Doe",
-    "email": "john@example.com",
+    "name": "Tester",
+    "email": "tester@example.com",
     "bio": "",
     "avatar": "https://ui-avatars.com/api/?name=User&background=random"
   }
@@ -125,7 +73,7 @@ POST /api/auth/login
 Content-Type: application/json
 
 {
-  "email": "john@example.com",
+  "email": "tester@example.com",
   "password": "password123"
 }
 ```
@@ -169,7 +117,7 @@ Content-Type: application/json
   "description": "Finish the backend API",
   "status": "in-progress",
   "priority": "high",
-  "dueDate": "2024-12-31",
+  "dueDate": "2025-12-31",
   "tags": ["work", "urgent"]
 }
 ```
@@ -215,7 +163,7 @@ Authorization: Bearer <token>
 Content-Type: application/json
 
 {
-  "name": "John Updated",
+  "name": "Developer",
   "bio": "Full-stack developer",
   "avatar": "https://example.com/avatar.jpg"
 }
@@ -239,25 +187,6 @@ Content-Type: application/json
 5. Set `Authorization: Bearer <token>` for protected routes
 6. Test all CRUD operations
 
-## 📦 Scalability Considerations
-
-### Current Architecture
-- **Modular structure**: Separated concerns (models, routes, middleware)
-- **Mongoose ODM**: Efficient database queries and validation
-- **JWT stateless auth**: No server-side session storage
-
-### For Production Scale
-1. **Caching Layer**: Implement Redis for frequently accessed data
-2. **Rate Limiting**: Add express-rate-limit to prevent abuse
-3. **Logging**: Use Winston or Morgan for comprehensive logging
-4. **Database Indexing**: Add indexes on frequently queried fields
-5. **Load Balancing**: Use PM2 or Nginx for multiple server instances
-6. **Microservices**: Split into separate services (auth, tasks, notifications)
-7. **Message Queues**: Use RabbitMQ or Kafka for async operations
-8. **CDN**: Serve static assets via CDN
-9. **Database Replication**: Set up MongoDB replica sets
-10. **Monitoring**: Implement APM tools (New Relic, Datadog)
-    
 ## 📝 Environment Variables
 
 | Variable | Description | Example |
@@ -268,15 +197,3 @@ Content-Type: application/json
 | JWT_SECRET | Secret key for JWT | your_secret_key |
 | JWT_EXPIRE | Token expiration | 7d |
 | CLIENT_URL | Frontend URL for CORS | http://localhost:5173 |
-
-## 🐛 Common Issues
-
-### MongoDB Connection Error
-- Verify MongoDB Atlas IP whitelist (allow 0.0.0.0/0 for development)
-- Check username and password in connection string
-- Ensure database user has proper permissions
-
-### JWT Token Invalid
-- Check if JWT_SECRET matches between environments
-- Verify token is being sent in Authorization header
-- Token may have expired (check JWT_EXPIRE setting)
