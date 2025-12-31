@@ -1,4 +1,4 @@
-# Scalable Web App Backend
+# Backend Documentation
 
 A robust REST API built with Node.js, Express, and MongoDB featuring JWT authentication and CRUD operations.
 
@@ -257,26 +257,7 @@ Content-Type: application/json
 8. **CDN**: Serve static assets via CDN
 9. **Database Replication**: Set up MongoDB replica sets
 10. **Monitoring**: Implement APM tools (New Relic, Datadog)
-
-## 🚀 Deployment
-
-### Deploy to Render
-
-1. Push code to GitHub
-2. Go to [Render](https://render.com)
-3. Create new Web Service
-4. Connect your repository
-5. Add environment variables
-6. Deploy
-
-### Deploy to Railway
-
-1. Push code to GitHub
-2. Go to [Railway](https://railway.app)
-3. New Project → Deploy from GitHub
-4. Add environment variables
-5. Deploy
-
+    
 ## 📝 Environment Variables
 
 | Variable | Description | Example |
@@ -299,15 +280,3 @@ Content-Type: application/json
 - Check if JWT_SECRET matches between environments
 - Verify token is being sent in Authorization header
 - Token may have expired (check JWT_EXPIRE setting)
-
-## 📄 License
-
-MIT License - feel free to use this project for learning and development.
-
-## 👨‍💻 Author
-
-Your Name - Frontend Developer Intern Assignment
-
-## 🤝 Contributing
-
-Feel free to submit issues and enhancement requests!
